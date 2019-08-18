@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Header, Container } from 'semantic-ui-react';
 import Preview from './components/Preview';
 import SetsuTextArea from './components/SetsuTextArea';
 const style = {
@@ -9,7 +9,7 @@ const style = {
 };
 
 const App: React.FC = () => (
-  <div className='container'>
+  <Container textAlign='center'>
     <Header as='h1' style={style.h1}>
       説ジェネレーター
     </Header>
@@ -19,7 +19,7 @@ const App: React.FC = () => (
         return () => {};
       }}
     />
-  </div>
+  </Container>
 );
 
 export default App;
