@@ -18,7 +18,6 @@ const App: React.FC = () => {
 
   const handleText = (e: React.FormEvent<HTMLTextAreaElement>) => {
     setText(e.currentTarget.value);
-    return <div />;
   };
   return (
     <Container textAlign='center'>
@@ -28,7 +27,7 @@ const App: React.FC = () => {
       <Preview text={text} />
       <Container style={style.my1}>
         <Form>
-          <TextArea onChange={handleText} />
+          <TextArea onChange={handleText} value={text} style={style.width30} />
         </Form>
       </Container>
     </Container>
