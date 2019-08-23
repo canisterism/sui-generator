@@ -14,11 +14,8 @@ const style = {
 };
 
 const App: React.FC = () => {
-  const [text, setText] = useState('init!!!!!!!!!!!!!!!!!!!!');
+  const [text, setText] = useState('LINE1 \nLINE2 \nLINE3');
 
-  const handleText = (e: React.FormEvent<HTMLTextAreaElement>) => {
-    setText(e.currentTarget.value);
-  };
   return (
     <Container textAlign='center'>
       <Header as='h1' style={style.h1}>
@@ -27,7 +24,13 @@ const App: React.FC = () => {
       <Preview text={text} />
       <Container style={style.my1}>
         <Form>
-          <TextArea onChange={handleText} value={text} style={style.width30} />
+          <TextArea
+            onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
+              setText(e.currentTarget.value);
+            }}
+            value={text}
+            style={style.width30}
+          />
         </Form>
       </Container>
     </Container>
