@@ -14,7 +14,9 @@ const style = {
 };
 
 const App: React.FC = () => {
-  const [text, setText] = useState('LINE1 \nLINE2 \nLINE3');
+  const [text, setText] = useState(
+    'Webエンジニアの８割\n幼少期に \n迷路書いてた'
+  );
 
   return (
     <Container textAlign='center'>
