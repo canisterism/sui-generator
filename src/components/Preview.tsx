@@ -13,12 +13,13 @@ export interface PreviewProps {
 
 const Preview: FC<PreviewProps> = ({
   templateImage = template,
-  text = 'テスト',
+  text,
   setsuImage = setsu
 }) => {
   const width: number = 700;
   const height: number = 470;
-  const bgImage = new Image();
+  const bgImage: HTMLImageElement = new Image();
+  const fontSize: number = 56;
   bgImage.src = templateImage;
 
   return (
@@ -33,7 +34,7 @@ const Preview: FC<PreviewProps> = ({
           </style>
         </defs>
         <image href={templateImage} width={width} height={height} />
-        <SetsuText text={text} />
+        <SetsuText text={text} fontSize={fontSize} />
         <image href={setsuImage} />
       </svg>
     </Container>

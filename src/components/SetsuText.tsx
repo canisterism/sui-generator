@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 
 export interface TextProps {
+  key: number;
   value: string;
-  fontSize?: string;
+  fontSize: string;
+  dy: number;
   x?: string;
   y?: string;
-  dy: number;
 }
 
 export const TextDefaultProps = {
-  fontSize: '48px',
   x: '50%',
   y: '48%',
   fontFamily: 'Kurobara Gothiic Black'
@@ -21,15 +21,21 @@ const Text = (props: TextProps) => (
   </text>
 );
 export interface SetsuTextProps {
-  text: string;
+  text?: string;
+  fontSize: number;
 }
 
-const SetsuText: FC<SetsuTextProps> = ({ text = 'initial text' }) => {
+const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
   const lines: string[] = text.split('\n');
-  const firstDy: number = 48 - (48 / 2) * lines.length;
+  const firstDy: number = fontSize - ((fontSize - 8) / 2) * lines.length;
 
   const Texts: JSX.Element[] = lines.map((text: string, i: number) => (
-    <Text key={i} value={text} dy={firstDy + 48 * i} />
+    <Text
+      key={i}
+      value={text}
+      dy={firstDy + (fontSize + 8) * i}
+      fontSize={fontSize + 'px'}
+    />
   ));
   return <g textAnchor='middle'>{Texts}</g>;
 };
