@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import setsu from '../styles/theme/default/assets/images/setsu.svg';
 
 export interface TextProps {
   key: number;
@@ -29,14 +30,45 @@ const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
   const lines: string[] = text.split('\n');
   const firstDy: number = fontSize - ((fontSize - 8) / 2) * lines.length;
 
-  const Texts: JSX.Element[] = lines.map((text: string, i: number) => (
-    <Text
-      key={i}
-      value={text}
-      dy={firstDy + (fontSize + 8) * i}
-      fontSize={fontSize + 'px'}
-    />
-  ));
+  const Texts: JSX.Element[] = lines.map((text: string, i: number) => {
+    if (i === lines.length - 1) {
+      return (
+        <g>
+          <Text
+            key={i}
+            value={text}
+            dy={firstDy + (fontSize + 8) * i}
+            fontSize={fontSize + 'px'}
+          />
+          <image
+            x='50%'
+            y='48%'
+            height={fontSize + 2 + 'px'}
+            width={fontSize + 2 + 'px'}
+            // x: 文字数分だけフォントのサイズ半分だけズラす
+            // y: WIP
+            transform={
+              'translate(' +
+              (fontSize / 2) * text.length +
+              ' ' +
+              (firstDy + (fontSize + 8) * i) +
+              ')'
+            }
+            href={setsu}
+          />
+        </g>
+      );
+    } else {
+      return (
+        <Text
+          key={i}
+          value={text}
+          dy={firstDy + (fontSize + 8) * i}
+          fontSize={fontSize + 'px'}
+        />
+      );
+    }
+  });
   return <g textAnchor='middle'>{Texts}</g>;
 };
 
