@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Container } from 'semantic-ui-react';
 import template from '../styles/theme/default/assets/images/sui_image.png';
-import setsu from '../styles/theme/default/assets/images/setsu.svg';
 import font from '../styles/theme/default/assets/fonts/font.base64.js';
 import SetsuText from './SetsuText';
 
@@ -11,11 +10,7 @@ export interface PreviewProps {
   setsuImage?: any; //fixme
 }
 
-const Preview: FC<PreviewProps> = ({
-  templateImage = template,
-  text,
-  setsuImage = setsu
-}) => {
+const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
   const width: number = 700;
   const height: number = 470;
   const bgImage: HTMLImageElement = new Image();
@@ -35,7 +30,6 @@ const Preview: FC<PreviewProps> = ({
         </defs>
         <image href={templateImage} width={width} height={height} />
         <SetsuText text={text} fontSize={fontSize} />
-        <image href={setsuImage} />
       </svg>
     </Container>
   );
