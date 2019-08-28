@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import setsu from '../styles/theme/default/assets/images/setsu.svg';
 
 export interface TextProps {
-  key: number;
   value: string;
   fontSize: string;
   dy: number;
@@ -33,9 +32,8 @@ const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
   const Texts: JSX.Element[] = lines.map((text: string, i: number) => {
     if (i === lines.length - 1) {
       return (
-        <g>
+        <g key={i}>
           <Text
-            key={i}
             value={text}
             dy={firstDy + (fontSize + 8) * i}
             fontSize={fontSize + 'px'}
@@ -46,12 +44,12 @@ const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
             height={fontSize + 2 + 'px'}
             width={fontSize + 2 + 'px'}
             // x: 文字数分だけフォントのサイズ半分だけズラす
-            // y: WIP
+            // y: 1行分 + 行数分ズラす
             transform={
               'translate(' +
               (fontSize / 2) * text.length +
               ' ' +
-              (firstDy + (fontSize + 8) * i) +
+              (-56 + (lines.length * fontSize) / 1.4) +
               ')'
             }
             href={setsu}
