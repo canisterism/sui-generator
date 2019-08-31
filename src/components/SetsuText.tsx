@@ -39,6 +39,7 @@ const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
             fontSize={fontSize + 'px'}
           />
           <image
+            id='setsu'
             x='50%'
             y='48%'
             height={fontSize + 2 + 'px'}

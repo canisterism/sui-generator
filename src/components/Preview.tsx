@@ -13,13 +13,11 @@ export interface PreviewProps {
 const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
   const width: number = 700;
   const height: number = 470;
-  const bgImage: HTMLImageElement = new Image();
   const fontSize: number = 56;
-  bgImage.src = templateImage;
 
   return (
     <Container textAlign='center'>
-      <svg width={width} height={height}>
+      <svg id='svg' width={width} height={height}>
         <defs>
           <style>
             {`@font-face {
@@ -28,7 +26,7 @@ const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
               }`}
           </style>
         </defs>
-        <image href={templateImage} width={width} height={height} />
+        <image id='bgImage' href={templateImage} width={width} height={height} />
         <SetsuText text={text} fontSize={fontSize} />
       </svg>
     </Container>

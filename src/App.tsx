@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Header, Container, Form, TextArea, Button } from 'semantic-ui-react';
+import { svgToPng } from './utils/Downloader';
+import bgImage from './styles/theme/default/assets/images/sui_image.png';
 import Preview from './components/Preview';
 const style = {
   h1: {
@@ -13,13 +15,20 @@ const style = {
   }
 };
 
+export const download = (src: string, filename = 'setsu.png') => {
+  const link = document.createElement('a');
+  link.href = src;
+  link.download = filename;
+  link.click()
+}
+
 const App: React.FC = () => {
   const [text, setText] = useState(
     'Webエンジニアの８割\n幼少期に \n迷路書いてた'
   );
 
   return (
-    <Container textAlign='center'>
+    <Container id='root' textAlign='center'>
       <Header as='h1' style={style.h1}>
         説ジェネレーター
       </Header>
@@ -35,7 +44,15 @@ const App: React.FC = () => {
           />
         </Form>
       </Container>
-      <Button primary>ダウンロード</Button>
+      <Button primary onClick={ () => {
+        // debugger
+        const svg = document.getElementById('svg')!
+        const bgImage = document.getElementById('bgImage')! as HTMLImageElement
+        const setsuImage = document.getElementById('setsu')! as HTMLImageElement
+        svgToPng(svg, bgImage, setsuImage)
+      }}>
+        ダウンロード
+      </Button>
     </Container>
   );
 };
