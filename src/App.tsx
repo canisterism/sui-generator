@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Header, Container, Form, TextArea, Button } from 'semantic-ui-react';
 import { svgToPng } from './utils/Downloader';
-import bgImage from './styles/theme/default/assets/images/sui_image.png';
 import Preview from './components/Preview';
 const style = {
   h1: {
@@ -45,7 +44,6 @@ const App: React.FC = () => {
         </Form>
       </Container>
       <Button primary onClick={ () => {
-        // debugger
         const svg = document.getElementById('svg')!
         const bgImage = document.getElementById('bgImage')! as HTMLImageElement
         const setsuImage = document.getElementById('setsu')! as HTMLImageElement
