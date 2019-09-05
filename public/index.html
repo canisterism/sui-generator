@@ -10,7 +10,7 @@
     <meta property="og:url" content="https://suiyoubi-generator" />
     <meta property="og:title" content="水曜日のダウンタウン「説」ジェネレーター" />
     <meta property="og:description" content="水曜日のダウンタウンの「説」画像が作れるジェネレーターです。" />
-    <meta property="og:image" content="to be determined" />
+    <meta property="og:image" content="gs://sui-generator.appspot.com/sui_image.png" />
     <link rel="apple-touch-icon" href="logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -30,6 +30,26 @@
     <title>React App</title>
   </head>
   <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAxdAaRw0urER6RlFCT-a4DN6mjC67yIMU",
+        authDomain: "sui-generator.firebaseapp.com",
+        databaseURL: "https://sui-generator.firebaseio.com",
+        projectId: "sui-generator",
+        storageBucket: "",
+        messagingSenderId: "769614025241",
+        appId: "1:769614025241:web:dc22ef049fb88a8a559088"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
