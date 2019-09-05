@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header, Container, Form, TextArea, Button } from 'semantic-ui-react';
 import { svgToPng } from './utils/Downloader';
 import Preview from './components/Preview';
+import TweetButton from './components/TweetButton';
 const style = {
   h1: {
     marginTop: '3rem'
@@ -51,6 +52,7 @@ const App: React.FC = () => {
       }}>
         ダウンロード
       </Button>
+      <TweetButton/>
     </Container>
   );
 };
