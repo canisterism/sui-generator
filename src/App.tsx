@@ -19,8 +19,8 @@ export const download = (src: string, filename = 'setsu.png') => {
   const link = document.createElement('a');
   link.href = src;
   link.download = filename;
-  link.click()
-}
+  link.click();
+};
 
 const App: React.FC = () => {
   const [text, setText] = useState(
@@ -44,15 +44,22 @@ const App: React.FC = () => {
           />
         </Form>
       </Container>
-      <Button primary onClick={ () => {
-        const svg = document.getElementById('svg')!
-        const bgImage = document.getElementById('bgImage')! as HTMLImageElement
-        const setsuImage = document.getElementById('setsu')! as HTMLImageElement
-        svgToPng(svg, bgImage, setsuImage)
-      }}>
+      <Button
+        primary
+        onClick={() => {
+          const svg = document.getElementById('svg')!;
+          const bgImage = document.getElementById(
+            'bgImage'
+          )! as HTMLImageElement;
+          const setsuImage = document.getElementById(
+            'setsu'
+          )! as HTMLImageElement;
+          svgToPng(svg, bgImage, setsuImage);
+        }}
+      >
         ダウンロード
       </Button>
-      <TweetButton/>
+      <TweetButton />
     </Container>
   );
 };
