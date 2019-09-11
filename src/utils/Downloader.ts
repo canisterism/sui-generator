@@ -1,10 +1,13 @@
-export const initCanvas = (width: number, height: number): HTMLCanvasElement => {
-  const canvas = document.createElement('canvas')
-  canvas.width = width
-  canvas.height = height
-  const root = document.getElementById('root')!
-  return canvas
-}
+export const initCanvas = (
+  width: number,
+  height: number
+): HTMLCanvasElement => {
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const root = document.getElementById('app')!;
+  return canvas;
+};
 
 export const svgToPng = (svgElement: HTMLElement, bgImage: HTMLImageElement, setsuImage: HTMLImageElement): void => {
   const width = Number(svgElement.getAttribute('width'))

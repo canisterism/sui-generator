@@ -28,7 +28,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Container id='root' textAlign='center'>
+    <Container id='app' textAlign='center'>
       <Header as='h1' style={style.h1}>
         説ジェネレーター
       </Header>
