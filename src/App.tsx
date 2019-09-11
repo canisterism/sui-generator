@@ -4,8 +4,10 @@ import { svgToPng } from './utils/Downloader';
 import Preview from './components/Preview';
 import TweetButton from './components/TweetButton';
 const style = {
-  h1: {
-    marginTop: '3rem'
+  header: {
+    fontFamily: 'Kurobara Gothiic Black',
+    paddingTop: '2rem',
+    fontSize: '3rem'
   },
   my1: {
     margin: '1rem 0'
@@ -29,8 +31,9 @@ const App: React.FC = () => {
 
   return (
     <Container id='app' textAlign='center'>
-      <Header as='h1' style={style.h1}>
-        説ジェネレーター
+      <Header as='h1' style={style.header}>
+        水曜日のダウンタウン
+        <br /> 説ジェネレーター
       </Header>
       <Preview text={text} />
       <Container style={style.my1}>
@@ -55,8 +58,7 @@ const App: React.FC = () => {
             'setsu'
           )! as HTMLImageElement;
           svgToPng(svg, bgImage, setsuImage);
-        }}
-      >
+        }}>
         ダウンロード
       </Button>
       <TweetButton />
