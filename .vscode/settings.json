@@ -1,0 +1,5 @@
+{
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.jsxSingleQuote": true
+}
