@@ -26,7 +26,7 @@ export const download = (src: string, filename = 'setsu.png') => {
 
 const App: React.FC = () => {
   const [text, setText] = useState(
-    'Webエンジニアの８割\n幼少期に \n迷路書いてた'
+    'Webエンジニアの８割\n幼少期に\n迷路書いてた'
   );
 
   return (
@@ -61,7 +61,7 @@ const App: React.FC = () => {
         }}>
         ダウンロード
       </Button>
-      <TweetButton />
+      <TweetButton text={text.replace(/(\r\n|\n|\r)/gm, '')} />
     </Container>
   );
 };
