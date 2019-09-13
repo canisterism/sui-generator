@@ -57,7 +57,7 @@ const App: React.FC = () => {
           const setsuImage = document.getElementById(
             'setsu'
           )! as HTMLImageElement;
-          svgToPng(svg, bgImage, setsuImage);
+          svgToPng(svg, bgImage, setsuImage, text);
         }}>
         ダウンロード
       </Button>

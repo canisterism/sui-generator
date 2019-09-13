@@ -12,7 +12,8 @@ export const initCanvas = (
 export const svgToPng = (
   svgElement: HTMLElement,
   bgImage: HTMLImageElement,
-  setsuImage: HTMLImageElement
+  setsuImage: HTMLImageElement,
+  imageName: string
 ): void => {
   const width = Number(svgElement.getAttribute('width'));
   const height = Number(svgElement.getAttribute('height'));
@@ -55,7 +56,7 @@ export const svgToPng = (
         return true;
       })
       .then(() => {
-        download(canvas.toDataURL('image/png'));
+        download(canvas.toDataURL('image/png'), imageName);
       })
       .catch(e => console.error(e));
   };
@@ -69,9 +70,9 @@ export const svgToPng = (
   // })
 };
 
-const download = (src: string) => {
+const download = (src: string, imageName: string) => {
   const link: HTMLAnchorElement = document.createElement('a');
   link.href = src;
-  link.download = '説.png';
+  link.download = imageName + '.png';
   link.click();
 };
