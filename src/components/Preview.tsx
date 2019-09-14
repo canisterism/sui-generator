@@ -26,7 +26,12 @@ const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
               }`}
           </style>
         </defs>
-        <image id='bgImage' href={templateImage} width={width} height={height} />
+        <image
+          id='bgImage'
+          href={templateImage}
+          width={width}
+          height={height}
+        />
         <SetsuText text={text} fontSize={fontSize} />
       </svg>
     </Container>
