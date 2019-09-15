@@ -33,7 +33,7 @@ export const svgToPng = (
         // 「説」のsvgの'trasform(xShift, yShift)'からshift幅を取得する(px)
         const [setsuXShift, setsuYShift] = setsuImage
           .getAttribute('transform')!
-          .match(/\d+\.*\d*/g)!;
+          .match(/[-+0-9.]+/g)!;
         // 「説」向け：出力する画像のxの中心 = 画像全体のwidth * (プレビューの「説」で指定したxの%)
         const setsuDxCenter =
           width * 0.01 * Number(setsuImage.getAttribute('x')!.replace('%', ''));

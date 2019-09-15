@@ -42,8 +42,8 @@ const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
             id='setsu'
             x='50%'
             y='48%'
-            height={fontSize + 2 + 'px'}
-            width={fontSize + 2 + 'px'}
+            height={fontSize + 2 + 'px'} // 画像の縦幅
+            width={fontSize + 2 + 'px'} // 画像の横幅
             // x: 文字数分だけフォントのサイズ半分だけズラす
             // y: 1行分 + 行数分ズラす
             transform={
