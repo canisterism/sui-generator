@@ -5,7 +5,6 @@ export const initCanvas = (
   const canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;
-  const root = document.getElementById('app')!;
   return canvas;
 };
 
@@ -31,11 +30,14 @@ export const svgToPng = (
       setTimeout(resolve, 0);
     })
       .then(() => {
+        // 「説」のsvgの'trasform(xShift, yShift)'からshift幅を取得する(px)
         const [setsuXShift, setsuYShift] = setsuImage
           .getAttribute('transform')!
           .match(/\d+\.*\d*/g)!;
+        // 「説」向け：出力する画像のxの中心 = 画像全体のwidth * (プレビューの「説」で指定したxの%)
         const setsuDxCenter =
           width * 0.01 * Number(setsuImage.getAttribute('x')!.replace('%', ''));
+        // 「説」向け：xの値 = 出力する画像のxの中心 + (svgから取得したtransformのx)
         const setsuDx = setsuDxCenter + Number(setsuXShift);
         const setsuDyCenter =
           height *

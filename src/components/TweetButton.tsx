@@ -1,4 +1,4 @@
-import React, { useEffect, FC } from 'react';
+import React, { FC } from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 export interface TweetButtonProps {
   text: string;
