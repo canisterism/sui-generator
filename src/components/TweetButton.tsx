@@ -5,19 +5,19 @@ export interface TweetButtonProps {
 }
 
 export const TweetButton: FC<TweetButtonProps> = ({ text }) => {
-  useEffect(() => {
-    //@ts-ignore
-    twttr.widgets.load(document.getElementById('twitter-share-button'));
-  }, []);
   return (
     <a
       id='twitter-share-button'
-      href='https://twitter.com/share?ref_src=twsrc%5Etfw'
       className='twitter-share-button'
-      data-show-count='false'
-      data-text={text + '説'}
-      data-url='https://www.sui-generator.tech'
-      data-hashtags='説ジェネレーター'>
+      onClick={() =>
+        window.open(
+          'https://twitter.com/share?text=' +
+            text +
+            '説&url=https://www.sui-generator.tech&hashtags=説ジェネレーター',
+          'popup',
+          'width=600,height=250,scrollbars=no,resizable=no,left=400,top=300'
+        )
+      }>
       tweet
     </a>
   );
