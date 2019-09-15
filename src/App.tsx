@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Header, Container, Form, TextArea, Button } from 'semantic-ui-react';
+import {
+  Header,
+  Container,
+  Form,
+  TextArea,
+  Button,
+  Icon
+} from 'semantic-ui-react';
 import { svgToPng } from './utils/Downloader';
 import Preview from './components/Preview';
 import TweetButton from './components/TweetButton';
@@ -59,6 +66,7 @@ const App: React.FC = () => {
           )! as HTMLImageElement;
           svgToPng(svg, bgImage, setsuImage, text);
         }}>
+        <Icon name='download' />
         ダウンロード
       </Button>
       <TweetButton text={text.replace(/(\r\n|\n|\r)/gm, '')} />

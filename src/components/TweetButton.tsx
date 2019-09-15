@@ -1,14 +1,13 @@
 import React, { useEffect, FC } from 'react';
-
+import { Button, Icon } from 'semantic-ui-react';
 export interface TweetButtonProps {
   text: string;
 }
 
 export const TweetButton: FC<TweetButtonProps> = ({ text }) => {
   return (
-    <a
-      id='twitter-share-button'
-      className='twitter-share-button'
+    <Button
+      color='twitter'
       onClick={() =>
         window.open(
           'https://twitter.com/share?text=' +
@@ -18,8 +17,9 @@ export const TweetButton: FC<TweetButtonProps> = ({ text }) => {
           'width=600,height=250,scrollbars=no,resizable=no,left=400,top=300'
         )
       }>
-      tweet
-    </a>
+      <Icon name='twitter' />
+      ツイート
+    </Button>
   );
 };
 
