@@ -50,7 +50,7 @@ const SetsuText: FC<SetsuTextProps> = ({ text = 'intial', fontSize }) => {
               'translate(' +
               (fontSize / 2) * text.length +
               ' ' +
-              (-56 + (lines.length * fontSize) / 1.4) +
+              (-1 * fontSize + (lines.length * fontSize) / 1.6) +
               ')'
             }
             href={setsu}

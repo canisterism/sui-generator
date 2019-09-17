@@ -14,8 +14,9 @@ export const svgToPng = (
   setsuImage: HTMLImageElement,
   imageName: string
 ): void => {
-  const width = Number(svgElement.getAttribute('width'));
-  const height = Number(svgElement.getAttribute('height'));
+  // viewBox: 'x, y, width, height'
+  const viewBoxAttr = svgElement.getAttribute('viewBox')!.match(/\d+/g)!;
+  const [width, height] = [Number(viewBoxAttr[2]), Number(viewBoxAttr[3])];
 
   const svg: string = encodeURIComponent(
     new XMLSerializer().serializeToString(svgElement)

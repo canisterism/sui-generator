@@ -11,16 +11,23 @@ import { svgToPng } from './utils/Downloader';
 import Preview from './components/Preview';
 import TweetButton from './components/TweetButton';
 const style = {
+  app: {
+    maxWidth: '875px',
+    minWidth: '320px',
+    textAlign: 'center' as 'center',
+    paddingBottom: '1rem',
+    margin: 'auto'
+  },
   header: {
     fontFamily: 'Kurobara Gothiic Black',
-    paddingTop: '2rem',
-    fontSize: '3rem'
+    paddingTop: '2rem'
   },
   my1: {
     margin: '1rem 0'
   },
-  width30: {
-    width: '30%'
+  textarea: {
+    textAlign: 'center' as 'center',
+    width: '70%'
   }
 };
 
@@ -37,7 +44,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Container id='app' textAlign='center'>
+    <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
         水曜日のダウンタウン
         <br /> 説ジェネレーター
@@ -50,7 +57,7 @@ const App: React.FC = () => {
               setText(e.currentTarget.value);
             }}
             value={text}
-            style={style.width30}
+            style={style.textarea}
           />
         </Form>
       </Container>
@@ -70,7 +77,7 @@ const App: React.FC = () => {
         ダウンロード
       </Button>
       <TweetButton text={text.replace(/(\r\n|\n|\r)/gm, '')} />
-    </Container>
+    </div>
   );
 };
 

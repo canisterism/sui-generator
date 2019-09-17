@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Container } from 'semantic-ui-react';
-import template from '../styles/theme/default/assets/images/sui_image.webp';
+import template from '../styles/theme/default/assets/images/sui_image.png';
 import font from '../styles/theme/default/assets/fonts/font.base64.js';
 import SetsuText from './SetsuText';
 
@@ -11,13 +11,13 @@ export interface PreviewProps {
 }
 
 const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
-  const width: number = 700;
-  const height: number = 470;
-  const fontSize: number = 56;
+  const width: number = 1500;
+  const height: number = 800;
+  const fontSize: number = 116;
 
   return (
     <Container textAlign='center'>
-      <svg id='svg' width={width} height={height}>
+      <svg id='svg' viewBox={'0 0 ' + width + ' ' + height}>
         <defs>
           <style>
             {`@font-face {
@@ -29,8 +29,9 @@ const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
         <image
           id='bgImage'
           href={templateImage}
-          width={width}
-          height={height}
+          // viewBox={'0 0 ' + width + ' ' + height}
+          width='100%'
+          height='100%'
         />
         <SetsuText text={text} fontSize={fontSize} />
       </svg>
