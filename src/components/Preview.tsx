@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Container } from 'semantic-ui-react';
-import template from '../styles/theme/default/assets/images/sui_image.png';
+import template from '../styles/theme/default/assets/images/sui_image.webp';
 import font from '../styles/theme/default/assets/fonts/font.base64.js';
 import SetsuText from './SetsuText';
 
