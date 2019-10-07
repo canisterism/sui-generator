@@ -9,7 +9,7 @@ import {
 } from 'semantic-ui-react';
 import { svgToPng } from '../../utils/Downloader';
 import Preview from '../../components/Preview';
-import TweetButton from '../../components/TweetButton';
+import { Link } from 'react-router-dom';
 
 const style = {
   app: {
@@ -56,7 +56,7 @@ const Home: FC<{}> = () => {
         </Form>
       </Container>
       <Button
-        primary
+        secondary
         onClick={() => {
           const svg = document.getElementById('svg')!;
           const bgImage = document.getElementById(
@@ -70,7 +70,9 @@ const Home: FC<{}> = () => {
         <Icon name='download' />
         ダウンロード
       </Button>
-      <TweetButton text={text.replace(/(\r\n|\n|\r)/gm, '')} />
+      <Link to='/setsu/1'>
+        <Button primary>完成！</Button>
+      </Link>
     </div>
   );
 };
