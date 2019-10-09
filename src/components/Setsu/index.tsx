@@ -1,10 +1,17 @@
 import React, { FC, useState } from 'react';
-import { Button } from 'semantic-ui-react';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { Button, Header } from 'semantic-ui-react';
 
-const Setsu: FC<{}> = () => (
-  <>
-    <Button>DO IT</Button>
-  </>
-);
+type SetsuProps = {} & RouteComponentProps<{ id: string }>;
 
-export default Setsu;
+const Setsu: FC<SetsuProps> = ({ match }) => {
+  const id = match.params.id;
+  return (
+    <>
+      <Button>DO IT</Button>
+      <Header>id: {id}</Header>
+    </>
+  );
+};
+
+export default withRouter(Setsu);

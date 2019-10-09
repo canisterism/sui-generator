@@ -70,7 +70,7 @@ const Home: FC<{}> = () => {
         <Icon name='download' />
         ダウンロード
       </Button>
-      <Link to='/setsu/1'>
+      <Link to={`/setsu/${1}`}>
         <Button primary>完成！</Button>
       </Link>
     </div>
