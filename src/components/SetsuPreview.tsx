@@ -1,20 +1,20 @@
 import React, { FC } from 'react';
 import { Container } from 'semantic-ui-react';
-import template from '../styles/theme/default/assets/images/sui_image.png';
+import bgImage from '../styles/theme/default/assets/images/sui_image.png';
 import font from '../styles/theme/default/assets/fonts/font.base64.js';
 import SetsuText from './SetsuText';
 
 export interface PreviewProps {
-  templateImage?: any; // fixme
-  text?: string;
-  setsuImage?: any; //fixme
+  bgImageUrl?: any; // fixme
+  width: number;
+  height: number;
 }
 
-const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
-  const width: number = 1500;
-  const height: number = 800;
-  const fontSize: number = 116;
-
+const SetsuPreview: FC<PreviewProps> = ({
+  bgImageUrl = bgImage,
+  width,
+  height
+}) => {
   return (
     <Container textAlign='center'>
       <svg id='svg' viewBox={'0 0 ' + width + ' ' + height}>
@@ -28,15 +28,15 @@ const Preview: FC<PreviewProps> = ({ templateImage = template, text }) => {
         </defs>
         <image
           id='bgImage'
-          href={templateImage}
+          href={bgImageUrl}
           // viewBox={'0 0 ' + width + ' ' + height}
           width='100%'
           height='100%'
         />
-        <SetsuText text={text} fontSize={fontSize} />
+        {/* <SetsuText /> */}
       </svg>
     </Container>
   );
 };
 
-export default Preview;
+export default SetsuPreview;
