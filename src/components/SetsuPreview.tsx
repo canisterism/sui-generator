@@ -26,13 +26,7 @@ const SetsuPreview: FC<PreviewProps> = ({
               }`}
           </style>
         </defs>
-        <image
-          id='bgImage'
-          href={bgImageUrl}
-          // viewBox={'0 0 ' + width + ' ' + height}
-          width='100%'
-          height='100%'
-        />
+        <image id='bgImage' href={bgImageUrl} width='100%' height='100%' />
         <SetsuTexts />
       </svg>
     </Container>

@@ -1,43 +1,18 @@
 import React, { FC } from 'react';
 import SetsuText from './SetsuText';
-import setsu from '../styles/theme/default/assets/images/setsu.svg';
+import SetsuImage from './SetsuImage';
 
 export interface SetsuTextsProps {
-  text: string;
+  textValue: string;
   fontSize: number;
 }
 
-const SetsuTexts: FC<SetsuTextsProps> = ({ text = '', fontSize }) => {
-  const lines: string[] = text.split('\n');
+const SetsuTexts: FC<SetsuTextsProps> = ({ textValue = '', fontSize }) => {
+  const lines: string[] = textValue.split('\n');
   const firstDy: number = fontSize - ((fontSize - 8) / 2) * lines.length;
 
   const Texts: JSX.Element[] = lines.map((text: string, i: number) => {
-    if (i === lines.length - 1) {
-      return (
-        <g key={i}>
-          <SetsuText
-            value={text}
-            dy={firstDy + (fontSize + 8) * i}
-            fontSize={fontSize + 'px'}
-          />
-          <image
-            id='setsu'
-            x='50%'
-            y='48%'
-            height={fontSize + 2 + 'px'} // 画像の縦幅
-            width={fontSize + 2 + 'px'} // 画像の横幅
-            transform={
-              'translate(' +
-              (fontSize / 2) * text.length + // x: 文字数分だけフォントのサイズ半分だけズラす
-              ' ' +
-              (-1 * fontSize + (lines.length * fontSize) / 1.6) + // y: 1行分 + 行数分ズラす
-              ')'
-            }
-            href={setsu}
-          />
-        </g>
-      );
-    } else {
+    if (i !== lines.length - 1) {
       return (
         <SetsuText
           key={i}
@@ -45,6 +20,17 @@ const SetsuTexts: FC<SetsuTextsProps> = ({ text = '', fontSize }) => {
           dy={firstDy + (fontSize + 8) * i}
           fontSize={fontSize + 'px'}
         />
+      );
+    } else {
+      return (
+        <g key={i}>
+          <SetsuText
+            value={text}
+            dy={firstDy + (fontSize + 8) * i}
+            fontSize={fontSize + 'px'}
+          />
+          {/* <SetsuImage /> */}
+        </g>
       );
     }
   });
