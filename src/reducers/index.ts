@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import text from './setsuText';
-import { SetsuTextState } from './setsuText';
+import setsu, { SetsuState } from './setsu';
 
 export interface RootState {
-  text: SetsuTextState;
+  setsu: SetsuState;
 }
 
-export default combineReducers({ text });
+export default combineReducers({ setsu });

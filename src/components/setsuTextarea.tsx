@@ -3,23 +3,20 @@ import { Form, TextArea } from 'semantic-ui-react';
 
 export interface setsuTextareaProps {
   textValue?: string;
-  textChange: (text: string) => void;
+  changeText: (text: string) => void;
 }
 
 const setsuTextarea: FC<setsuTextareaProps> = ({
   textValue = '',
-  textChange = () => {}
+  changeText = () => {}
 }) => (
   <Form>
-    <h1>{textValue}</h1>
     <TextArea
-      onChange={
-        (e: React.FormEvent<HTMLTextAreaElement>) =>
-          console.log(textChange(e.currentTarget.value))
-        // console.log(textChange)
-        // textChange(e.currentTarget.value)
+      onChange={(e: React.FormEvent<HTMLTextAreaElement>) =>
+        changeText(e.currentTarget.value)
       }
       value={textValue}
+      style={{ textAlign: 'center' }}
     />
   </Form>
 );
