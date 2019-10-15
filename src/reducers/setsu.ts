@@ -11,14 +11,18 @@ export interface SetsuState {
   width: number;
   height: number;
   bgImageUrl: string;
+  xCenter: number;
+  yCenter: number;
 }
 
 export const initialTextState: SetsuState = {
   textValue: 'Webエンジニアの８割\n幼少期に\n迷路書いてた',
   fontSize: 116,
-  width: 1500,
-  height: 800,
-  bgImageUrl: ''
+  width: 1500, // px
+  height: 800, // px
+  bgImageUrl: '',
+  xCenter: 50, // %
+  yCenter: 48 // %
 };
 
 const setsuReducer: Reducer<SetsuState, SetsuAction> = (

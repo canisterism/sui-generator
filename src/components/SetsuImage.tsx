@@ -2,50 +2,50 @@ import React, { FC } from 'react';
 import setsu from '../styles/theme/default/assets/images/setsu.svg';
 
 export interface SetsuImageProps {
-  x: number;
-  y: number;
+  xCenter: number;
+  yCenter: number;
   width?: number;
   height?: number;
   fontSize: number;
-  texts: string;
+  textValue: string;
 }
 
 interface translateValues {
-  x: number;
-  y: number;
+  xCenter: number;
+  yCenter: number;
 }
 
 export const translateXandY = (
   fontSize: number,
-  texts: string
+  textValue: string
 ): translateValues => {
-  const lines = texts.split('\n');
+  const lines = textValue.split('\n');
   const lastLine = lines[lines.length - 1];
   const x = (fontSize / 2) * lastLine.length;
 
   const y = -1 * fontSize + (lines.length * fontSize) / 1.6;
 
-  return { x: x, y: y };
+  return { xCenter: x, yCenter: y };
 };
 
 const translate = (params: translateValues): string =>
-  `translate(${params.x} ${params.y})`;
+  `translate(${params.xCenter} ${params.yCenter})`;
 
 const SetsuImage: FC<SetsuImageProps> = ({
-  x,
-  y,
+  xCenter,
+  yCenter,
   fontSize,
   width = fontSize + 2,
   height = fontSize + 2,
-  texts
+  textValue
 }) => (
   <image
     id='setsu-image'
-    x={x + '%'}
-    y={y + '%'}
+    x={xCenter + '%'}
+    y={yCenter + '%'}
     height={width + 'px'} // 画像の縦幅
     width={height + 'px'} // 画像の横幅
-    transform={translate(translateXandY(fontSize, texts))}
+    transform={translate(translateXandY(fontSize, textValue))}
     href={setsu}
   />
 );

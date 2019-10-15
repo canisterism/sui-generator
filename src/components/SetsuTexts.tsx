@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import SetsuText from './SetsuText';
-import SetsuImage from './SetsuImage';
+import SetsuImage from '../containers/SetsuImage';
 
 export interface SetsuTextsProps {
   textValue: string;
@@ -29,7 +29,7 @@ const SetsuTexts: FC<SetsuTextsProps> = ({ textValue = '', fontSize }) => {
             dy={firstDy + (fontSize + 8) * i}
             fontSize={fontSize + 'px'}
           />
-          {/* <SetsuImage /> */}
+          <SetsuImage />
         </g>
       );
     }
