@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Form, TextArea } from 'semantic-ui-react';
 
-export interface setsuTextareaProps {
+export interface SetsuTextareaProps {
   textValue?: string;
   changeText: (text: string) => void;
 }
 
-const setsuTextarea: FC<setsuTextareaProps> = ({
+const SetsuTextarea: FC<SetsuTextareaProps> = ({
   textValue = '',
   changeText = () => {}
 }) => (
@@ -21,4 +21,4 @@ const setsuTextarea: FC<setsuTextareaProps> = ({
   </Form>
 );
 
-export default setsuTextarea;
+export default SetsuTextarea;

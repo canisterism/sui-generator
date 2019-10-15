@@ -2,7 +2,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import { changeText } from '../actions/setsu';
-import setsuTextarea from '../components/SetsuTextarea';
+import SetsuTextarea from '../components/SetsuTextarea';
 import { RootState } from '../reducers/index';
 
 interface StateProps {
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(setsuTextarea);
+)(SetsuTextarea);
