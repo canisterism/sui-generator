@@ -3,11 +3,11 @@ import SetsuText from './SetsuText';
 import setsu from '../styles/theme/default/assets/images/setsu.svg';
 
 export interface SetsuTextsProps {
-  text?: string;
+  text: string;
   fontSize: number;
 }
 
-const SetsuTexts: FC<SetsuTextsProps> = ({ text = 'intial', fontSize }) => {
+const SetsuTexts: FC<SetsuTextsProps> = ({ text = '', fontSize }) => {
   const lines: string[] = text.split('\n');
   const firstDy: number = fontSize - ((fontSize - 8) / 2) * lines.length;
 
