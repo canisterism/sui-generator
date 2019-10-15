@@ -8,7 +8,8 @@ import {
   Icon
 } from 'semantic-ui-react';
 import { svgToPng } from '../../utils/Downloader';
-import Preview from '../../components/Preview';
+import SetsuPreview from '../../containers/SetsuPreview';
+import SetsuTextarea from '../../containers/SetsuTextarea';
 import { Link } from 'react-router-dom';
 
 const style = {
@@ -33,18 +34,18 @@ const style = {
 };
 
 const Home: FC<{}> = () => {
-  const [text, setText] = useState(
-    'Webエンジニアの８割\n幼少期に\n迷路書いてた'
-  );
-
   return (
     <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
         水曜日のダウンタウン
         <br /> 説ジェネレーター
       </Header>
-      <Preview text={text} />
-      <Container style={style.my1}>
+      <SetsuPreview />
+      <SetsuTextarea />
+      <Link to={`/setsu/${1}`}>
+        <Button primary>完成！</Button>
+      </Link>
+      {/*<Container style={style.my1}>
         <Form>
           <TextArea
             onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
@@ -72,7 +73,7 @@ const Home: FC<{}> = () => {
       </Button>
       <Link to={`/setsu/${1}`}>
         <Button primary>完成！</Button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
