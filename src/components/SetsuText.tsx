@@ -11,7 +11,7 @@ export interface SetsuTextProps {
 
 export const TextDefaultProps = {
   x: '50%',
-  y: '48%',
+  y: '50%',
   fontFamily: 'Kurobara Gothiic Black'
 };
 

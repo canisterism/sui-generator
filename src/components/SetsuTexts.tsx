@@ -5,11 +5,16 @@ import SetsuImage from '../containers/SetsuImage';
 export interface SetsuTextsProps {
   textValue: string;
   fontSize: number;
+  lineSpace: number;
 }
 
-const SetsuTexts: FC<SetsuTextsProps> = ({ textValue = '', fontSize }) => {
+const SetsuTexts: FC<SetsuTextsProps> = ({
+  textValue = '',
+  fontSize,
+  lineSpace
+}) => {
   const lines: string[] = textValue.split('\n');
-  const firstDy: number = fontSize - ((fontSize - 8) / 2) * lines.length;
+  const firstDy: number = fontSize - (fontSize / 2) * lines.length;
 
   const Texts: JSX.Element[] = lines.map((text: string, i: number) => {
     if (i !== lines.length - 1) {
@@ -17,24 +22,24 @@ const SetsuTexts: FC<SetsuTextsProps> = ({ textValue = '', fontSize }) => {
         <SetsuText
           key={i}
           value={text}
-          dy={firstDy + (fontSize + 8) * i}
+          dy={firstDy + (fontSize + lineSpace) * i}
           fontSize={fontSize + 'px'}
         />
       );
     } else {
       return (
-        <g key={i}>
+        <svg key={i}>
           <SetsuText
             value={text}
-            dy={firstDy + (fontSize + 8) * i}
+            dy={firstDy + (fontSize + lineSpace) * i}
             fontSize={fontSize + 'px'}
           />
           <SetsuImage />
-        </g>
+        </svg>
       );
     }
   });
-  return <g textAnchor='middle'>{Texts}</g>;
+  return <svg textAnchor='middle'>{Texts}</svg>;
 };
 
 export default SetsuTexts;

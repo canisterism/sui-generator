@@ -19,10 +19,11 @@ export const initialTextState: SetsuState = {
   textValue: 'Webエンジニアの８割\n幼少期に\n迷路書いてた',
   fontSize: 116,
   width: 1500, // px
-  height: 800, // px
-  bgImageUrl: '',
+  height: 850, // px
+  // bgImageUrl: '',
   xCenter: 50, // %
-  yCenter: 48 // %
+  yCenter: 50, // %
+  lineSpace: 8
 };
 
 const setsuReducer: Reducer<SetsuState, SetsuAction> = (

@@ -23,7 +23,9 @@ export const translateXandY = (
   const lastLine = lines[lines.length - 1];
   const x = (fontSize / 2) * lastLine.length;
 
-  const y = -1 * fontSize + (lines.length * fontSize) / 1.6;
+  // <text>がbaseとするラインと<image>がbaseとするラインが違うためにsemanticなロジックで書けない
+  // 間に合わせ感が否めないけど一旦これで
+  const y = -1 * fontSize + (lines.length * fontSize) / 1.65;
 
   return { x: x, y: y };
 };
