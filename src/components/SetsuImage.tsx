@@ -11,8 +11,8 @@ export interface SetsuImageProps {
 }
 
 interface translateValues {
-  xCenter: number;
-  yCenter: number;
+  x: number;
+  y: number;
 }
 
 export const translateXandY = (
@@ -25,11 +25,11 @@ export const translateXandY = (
 
   const y = -1 * fontSize + (lines.length * fontSize) / 1.6;
 
-  return { xCenter: x, yCenter: y };
+  return { x: x, y: y };
 };
 
 const translate = (params: translateValues): string =>
-  `translate(${params.xCenter} ${params.yCenter})`;
+  `translate(${params.x} ${params.y})`;
 
 const SetsuImage: FC<SetsuImageProps> = ({
   xCenter,
