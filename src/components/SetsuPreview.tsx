@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Container } from 'semantic-ui-react';
 import bgImage from '../styles/theme/default/assets/images/sui_image.png';
 import font from '../styles/theme/default/assets/fonts/font.base64.js';
-import SetsuText from './SetsuText';
+import SetsuTexts from '../containers/SetsuTexts';
 
 export interface PreviewProps {
   bgImageUrl?: any; // fixme
@@ -33,7 +33,7 @@ const SetsuPreview: FC<PreviewProps> = ({
           width='100%'
           height='100%'
         />
-        {/* <SetsuText /> */}
+        <SetsuTexts />
       </svg>
     </Container>
   );
