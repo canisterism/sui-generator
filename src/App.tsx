@@ -1,15 +1,13 @@
 import React, { FC } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-// import Setsu from './components/Setsu';
-// import Home from './components/Home';
-import setsuTextarea from './containers/setsuTextarea';
+import Home from './components/Home';
 
 const App: FC<{}> = () => (
   <>
     <Switch>
-      <Route path='/' component={setsuTextarea} />
+      {/* <Route path='/' component={setsuTextarea} /> */}
       {/* <Route path='/setsu/:id' component={Setsu} /> */}
-      {/* <Route path='/' component={Home} /> */}
+      <Route path='/' component={Home} />
       <Redirect to='/' />
     </Switch>
   </>
