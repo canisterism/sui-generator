@@ -1,4 +1,3 @@
-import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import SetsuPreview from '../components/SetsuPreview';

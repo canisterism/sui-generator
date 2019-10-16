@@ -1,13 +1,5 @@
-import React, { FC, useState } from 'react';
-import {
-  Header,
-  Container,
-  Form,
-  TextArea,
-  Button,
-  Icon
-} from 'semantic-ui-react';
-import { svgToPng } from '../../utils/Downloader';
+import React, { FC } from 'react';
+import { Header, Button } from 'semantic-ui-react';
 import SetsuPreview from '../../containers/SetsuPreview';
 import SetsuTextarea from '../../containers/SetsuTextarea';
 import { Link } from 'react-router-dom';
