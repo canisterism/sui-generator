@@ -1,19 +1,19 @@
 import { Reducer } from 'redux';
-import {
-  CHANGE_TEXT,
-  CHANGE_BG_IMAGE_URL,
-  SetsuAction
-} from '../actions/setsu';
+import { SetsuAction } from '../actions/setsu';
+import * as ActionTypes from '../actions/setsuConstants';
 
 export interface SetsuState {
   textValue: string;
   fontSize: number;
   width: number;
   height: number;
-  bgImage: string;
   xCenter: number;
   yCenter: number;
   lineSpace: number;
+  bgImage: string;
+  isProcessing: boolean;
+  previewBase64: string;
+  error: boolean;
 }
 
 export const initialTextState: SetsuState = {
@@ -21,11 +21,13 @@ export const initialTextState: SetsuState = {
   fontSize: 116,
   width: 1500, // px
   height: 850, // px
-  // bgImageUrl: '',
   xCenter: 50, // %
   yCenter: 50, // %
   lineSpace: 8,
-  bgImage: ''
+  bgImage: '',
+  isProcessing: false,
+  previewBase64: '',
+  error: false
 };
 
 const setsuReducer: Reducer<SetsuState, SetsuAction> = (
@@ -33,15 +35,30 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
   action: SetsuAction
 ): SetsuState => {
   switch (action.type) {
-    case CHANGE_TEXT:
+    case ActionTypes.CHANGE_TEXT:
       return {
         ...state,
         textValue: action.payload.text || ''
       };
-    case CHANGE_BG_IMAGE_URL:
+    case ActionTypes.CHANGE_BG_IMAGE_URL:
       return {
         ...state,
         bgImage: action.payload.src || ''
+      };
+    case ActionTypes.CREATE_PNG_START:
+      return {
+        ...state,
+        isProcessing: false
+      };
+    case ActionTypes.CREATE_PNG_SUCCEED:
+      return {
+        ...state,
+        bgImage: action.payload.result.base64 || ''
+      };
+    case ActionTypes.CREATE_PNG_FAIL:
+      return {
+        ...state,
+        error: action.error || true
       };
     default: {
       return state;
