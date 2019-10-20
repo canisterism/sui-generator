@@ -13,10 +13,10 @@ export const changeText = (text: string) => ({
   payload: { text }
 });
 
-export const changeBgImage = (src: string) => ({
-  type: ActionTypes.CHANGE_BG_IMAGE_URL as typeof ActionTypes.CHANGE_BG_IMAGE_URL,
-  payload: { src }
-});
+// export const changeBgImage = (src: string) => ({
+//   type: ActionTypes.CHANGE_BG_IMAGE_URL as typeof ActionTypes.CHANGE_BG_IMAGE_URL,
+//   payload: { src }
+// });
 
 export const complete = {
   start: () => ({
@@ -35,7 +35,7 @@ export const complete = {
 
 export type SetsuAction =
   | ReturnType<typeof changeText>
-  | ReturnType<typeof changeBgImage>
+  // | ReturnType<typeof changeBgImage>
   | ReturnType<typeof complete.start>
   | ReturnType<typeof complete.succeed>
   | ReturnType<typeof complete.fail>;

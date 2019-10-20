@@ -10,7 +10,6 @@ export interface SetsuState {
   xCenter: number;
   yCenter: number;
   lineSpace: number;
-  bgImage: string;
   isProcessing: boolean;
   previewBase64: string;
   error: boolean;
@@ -24,7 +23,6 @@ export const initialTextState: SetsuState = {
   xCenter: 50, // %
   yCenter: 50, // %
   lineSpace: 8,
-  bgImage: '',
   isProcessing: false,
   previewBase64: '',
   error: false
@@ -39,11 +37,6 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
       return {
         ...state,
         textValue: action.payload.text || ''
-      };
-    case ActionTypes.CHANGE_BG_IMAGE_URL:
-      return {
-        ...state,
-        bgImage: action.payload.src || ''
       };
     case ActionTypes.COMPLETE_START:
       return {
