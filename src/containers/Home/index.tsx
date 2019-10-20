@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { RootState } from '../../reducers/index';
-import { createPng } from '../../actions/setsu';
+import { complete } from '../../actions/setsu';
 import Home, { HomeProps } from '../../components/Home/index';
 
 interface StateProps {
@@ -22,7 +22,7 @@ const mapStateToProps = (state: RootState): StateProps => ({
 const DispatchToProps = (dispatch: Dispatch): DispatchProps =>
   bindActionCreators(
     {
-      onClickComplete: () => createPng.start()
+      onClickComplete: () => complete.start()
     },
     dispatch
   );
@@ -43,7 +43,7 @@ const HomeContainer: FC<EnhancedHomeProps> = ({
   </>
 );
 
-connect(
+export default connect(
   mapStateToProps,
   DispatchToProps
 )(HomeContainer);

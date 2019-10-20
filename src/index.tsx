@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-// import rootSaga from "./sagas/setsu"; // comment in later
+import rootSaga from './sagas/setsu'; // comment in later
 
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
@@ -28,8 +28,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-// sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);

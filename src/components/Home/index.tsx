@@ -1,12 +1,7 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Header, Button } from 'semantic-ui-react';
 import SetsuPreview from '../../containers/SetsuPreview';
 import SetsuTextarea from '../../containers/SetsuTextarea';
-import { Link } from 'react-router-dom';
-import { pngTobase64 } from '../../utils/imageCoverter';
-import setsuImage from '../../styles/theme/default/assets/images/sui_image.png';
-import { store } from '../../index';
-import { changeBgImage } from '../../actions/setsu';
 
 const style = {
   app: {
@@ -35,12 +30,7 @@ export interface HomeProps {
   onClickComplete: () => void;
 }
 
-const Home: FC<HomeProps> = () => {
-  // useEffect(() => {
-  //   pngTobase64(setsuImage).then(base64 => {
-  //     store.dispatch(changeBgImage(base64));
-  //   });
-  // }, []);
+const Home: FC<HomeProps> = ({ isProcessing, error, onClickComplete }) => {
   return (
     <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
@@ -49,9 +39,13 @@ const Home: FC<HomeProps> = () => {
       </Header>
       <SetsuPreview />
       <SetsuTextarea />
-      <Link to={`/setsu/${1}`}>
-        <Button primary>完成！</Button>
-      </Link>
+      <Button
+        primary
+        onClick={() => {
+          onClickComplete();
+        }}>
+        完成！
+      </Button>
     </div>
   );
 };

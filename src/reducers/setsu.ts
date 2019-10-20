@@ -45,19 +45,20 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
         ...state,
         bgImage: action.payload.src || ''
       };
-    case ActionTypes.CREATE_PNG_START:
+    case ActionTypes.COMPLETE_START:
+      return {
+        ...state,
+        isProcessing: true
+      };
+    case ActionTypes.COMPLETE_SUCCEED:
       return {
         ...state,
         isProcessing: false
       };
-    case ActionTypes.CREATE_PNG_SUCCEED:
+    case ActionTypes.COMPLETE_FAIL:
       return {
         ...state,
-        bgImage: action.payload.result.base64 || ''
-      };
-    case ActionTypes.CREATE_PNG_FAIL:
-      return {
-        ...state,
+        isProcessing: false,
         error: action.error || true
       };
     default: {

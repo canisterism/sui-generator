@@ -1,11 +1,12 @@
 import * as ActionTypes from './setsuConstants';
 
-// Actions to create png
-interface createPngResult {
-  base64: string;
+interface completeResult {
+  // base64: string;
 }
 
-interface createPngError {} // TODO: fix Error interface
+interface completeError {
+  reason: string;
+} // TODO: fix Error interface
 
 export const changeText = (text: string) => ({
   type: ActionTypes.CHANGE_TEXT as typeof ActionTypes.CHANGE_TEXT,
@@ -17,17 +18,16 @@ export const changeBgImage = (src: string) => ({
   payload: { src }
 });
 
-export const createPng = {
+export const complete = {
   start: () => ({
-    type: ActionTypes.CREATE_PNG_START as typeof ActionTypes.CREATE_PNG_START,
+    type: ActionTypes.COMPLETE_START as typeof ActionTypes.COMPLETE_START,
     payload: {}
   }),
-  succeed: (result: createPngResult) => ({
-    type: ActionTypes.CREATE_PNG_SUCCEED as typeof ActionTypes.CREATE_PNG_SUCCEED,
-    payload: { result }
+  succeed: (result: completeResult) => ({
+    type: ActionTypes.COMPLETE_SUCCEED as typeof ActionTypes.COMPLETE_SUCCEED
   }),
-  fail: (error: createPngError) => ({
-    type: ActionTypes.CREATE_PNG_FAIL as typeof ActionTypes.CREATE_PNG_FAIL,
+  fail: (error: completeError) => ({
+    type: ActionTypes.COMPLETE_FAIL as typeof ActionTypes.COMPLETE_FAIL,
     payload: { error },
     error: true
   })
@@ -36,6 +36,6 @@ export const createPng = {
 export type SetsuAction =
   | ReturnType<typeof changeText>
   | ReturnType<typeof changeBgImage>
-  | ReturnType<typeof createPng.start>
-  | ReturnType<typeof createPng.succeed>
-  | ReturnType<typeof createPng.fail>;
+  | ReturnType<typeof complete.start>
+  | ReturnType<typeof complete.succeed>
+  | ReturnType<typeof complete.fail>;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-import Home from './components/Home';
+import Home from './containers/Home/index';
 
 const App: FC<{}> = () => (
   <>
