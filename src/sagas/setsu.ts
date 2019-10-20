@@ -1,13 +1,14 @@
 import { all, call, fork, put, select, takeLatest } from 'redux-saga/effects';
 import * as Action from '../actions/setsuConstants';
 import { complete } from '../actions/setsu';
-import { pngTobase64 } from '../utils/imageCoverter';
+import { createBase64SetsuImage } from '../utils/imageCoverter';
 import { getState } from './selectors';
 
 function* runComplete() {
   try {
     const state = yield select(getState);
-    // yield call(pngTobase64);
+    const base64 = yield call(createBase64SetsuImage, state);
+    console.log({ base64 });
     // yield call(uploadImg, fileName);
     // const id = yield call(writePath);
     // yield put(push(`/setsu/${id}`));

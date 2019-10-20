@@ -62,10 +62,12 @@ interface setusAttrs {
 
 export const calculateSetsuAttrs = (state: SetsuState): setusAttrs => {
   const { xShift, yShift } = translateXandY(state.fontSize, state.textValue);
-
+  const setsuDx = state.width * 0.01 * state.xCenter + xShift;
+  const setsuDy = state.height * 0.01 * state.yCenter + yShift;
+  debugger;
   return {
-    setsuDy: state.width * 0.01 + xShift,
-    setsuDx: state.height * 0.01 + yShift,
+    setsuDx: setsuDx,
+    setsuDy: setsuDy,
     setsuWidth: state.fontSize + 2,
     setsuHeight: state.fontSize + 2
   };
@@ -86,7 +88,6 @@ export const createBase64SetsuImage = (state: SetsuState) => {
 
   return new Promise((resolve, reject) => {
     tmpImg.onload = () => {
-      debugger;
       ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
       resolve();
     };
