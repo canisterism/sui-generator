@@ -32,10 +32,9 @@ const style = {
 const Home: FC<{}> = () => {
   useEffect(() => {
     pngTobase64(setsuImage).then(base64 => {
-      console.log(base64);
       store.dispatch(changeBgImage(base64));
     });
-  });
+  }, []);
   return (
     <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
