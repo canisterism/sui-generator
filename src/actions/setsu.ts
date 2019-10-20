@@ -6,11 +6,11 @@ export const changeText = (text: string) => ({
   payload: { text }
 });
 
-export const changeBgImageUrl = (url: string) => ({
+export const changeBgImage = (src: string) => ({
   type: CHANGE_BG_IMAGE_URL as typeof CHANGE_BG_IMAGE_URL,
-  payload: { url }
+  payload: { src }
 });
 
 export type SetsuAction =
   | ReturnType<typeof changeText>
-  | ReturnType<typeof changeBgImageUrl>;
+  | ReturnType<typeof changeBgImage>;

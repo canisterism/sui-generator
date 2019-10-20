@@ -11,7 +11,7 @@ import 'semantic-ui-css/semantic.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducer, composeWithDevTools());
+export const store = createStore(reducer, composeWithDevTools());
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
