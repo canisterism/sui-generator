@@ -1,4 +1,6 @@
-import firebase from 'firebase'; // TODO: split import
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/storage';
 import config from './config';
 
 export const firebaseApp = firebase.initializeApp(config);
