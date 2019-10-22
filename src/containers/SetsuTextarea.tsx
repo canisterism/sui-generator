@@ -2,7 +2,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import { changeText } from '../actions/setsu';
-import SetsuTextarea from '../components/SetsuTextarea_';
+import SetsuTextarea from '../components/SetsuTextarea';
 import { RootState } from '../reducers/index';
 
 interface StateProps {
