@@ -14,6 +14,7 @@ export interface SetsuState {
   previewBase64: string;
   error: boolean;
   docId: string; // firebaseにアップロードされたファイル名
+  src: string; //firebaseの画像URL
 }
 
 export const initialTextState: SetsuState = {
@@ -27,7 +28,8 @@ export const initialTextState: SetsuState = {
   isProcessing: false,
   previewBase64: '',
   error: false,
-  docId: ''
+  docId: '',
+  src: ''
 };
 
 const setsuReducer: Reducer<SetsuState, SetsuAction> = (

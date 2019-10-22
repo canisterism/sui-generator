@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import rootSaga from './sagas/setsu'; // comment in later
+import rootSaga from './sagas/setsu';
+import { createBrowserHistory } from 'history';
+import createRootReducer from './reducers/index';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
@@ -14,16 +15,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
+export const history = createBrowserHistory();
 
 export const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+  createRootReducer(history),
+  composeWithDevTools(
+    compose(applyMiddleware(routerMiddleware(history), sagaMiddleware))
+  )
 );
+
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <ConnectedRouter history={history}>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
