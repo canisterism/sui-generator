@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Header, Button } from 'semantic-ui-react';
 import SetsuPreview from '../../containers/SetsuPreview';
-import SetsuTextarea from '../../containers/SetsuTextarea';
+import SetsuTextarea from '../../containers/SetsuTextarea_';
 
 const style = {
   app: {
