@@ -64,7 +64,6 @@ export const calculateSetsuAttrs = (state: SetsuState): setusAttrs => {
   const { xShift, yShift } = translateXandY(state.fontSize, state.textValue);
   const setsuDx = state.width * 0.01 * state.xCenter + xShift;
   const setsuDy = state.height * 0.01 * state.yCenter + yShift;
-  debugger;
   return {
     setsuDx: setsuDx,
     setsuDy: setsuDy,

@@ -21,6 +21,12 @@ const style = {
   textarea: {
     textAlign: 'center' as 'center',
     width: '70%'
+  },
+  button: {
+    marginTop: '1rem',
+    height: '3.5rem',
+    fontSize: '1.2rem',
+    width: '100%'
   }
 };
 
@@ -43,7 +49,9 @@ const Home: FC<HomeProps> = ({ isProcessing, error, onClickComplete }) => {
         primary
         onClick={() => {
           onClickComplete();
-        }}>
+        }}
+        style={style.button}
+        loading={isProcessing ? true : false}>
         完成！
       </Button>
     </div>
