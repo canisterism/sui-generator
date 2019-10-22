@@ -13,6 +13,7 @@ export interface SetsuState {
   isProcessing: boolean;
   previewBase64: string;
   error: boolean;
+  docId: string; // firebaseにアップロードされたファイル名
 }
 
 export const initialTextState: SetsuState = {
@@ -25,7 +26,8 @@ export const initialTextState: SetsuState = {
   lineSpace: 8,
   isProcessing: false,
   previewBase64: '',
-  error: false
+  error: false,
+  docId: ''
 };
 
 const setsuReducer: Reducer<SetsuState, SetsuAction> = (
@@ -46,7 +48,8 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
     case ActionTypes.COMPLETE_SUCCEED:
       return {
         ...state,
-        isProcessing: false
+        isProcessing: false,
+        docId: action.payload.docId
       };
     case ActionTypes.COMPLETE_FAIL:
       return {

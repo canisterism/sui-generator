@@ -9,3 +9,5 @@ export const firebaseStorage = firebaseApp
   .storage()
   .ref()
   .child('/setsu/');
+
+export const firestore = firebaseApp.firestore().collection('setsu');

@@ -1,7 +1,7 @@
 import * as ActionTypes from './setsuConstants';
 
 interface completeResult {
-  // base64: string;
+  docId: string;
 }
 
 interface completeError {
@@ -13,18 +13,16 @@ export const changeText = (text: string) => ({
   payload: { text }
 });
 
-// export const changeBgImage = (src: string) => ({
-//   type: ActionTypes.CHANGE_BG_IMAGE_URL as typeof ActionTypes.CHANGE_BG_IMAGE_URL,
-//   payload: { src }
-// });
-
 export const complete = {
   start: () => ({
     type: ActionTypes.COMPLETE_START as typeof ActionTypes.COMPLETE_START,
     payload: {}
   }),
   succeed: (result: completeResult) => ({
-    type: ActionTypes.COMPLETE_SUCCEED as typeof ActionTypes.COMPLETE_SUCCEED
+    type: ActionTypes.COMPLETE_SUCCEED as typeof ActionTypes.COMPLETE_SUCCEED,
+    payload: {
+      docId: result.docId
+    }
   }),
   fail: (error: completeError) => ({
     type: ActionTypes.COMPLETE_FAIL as typeof ActionTypes.COMPLETE_FAIL,
