@@ -45,9 +45,7 @@ export const getSetsuUrl = {
   }),
   succeed: (result: getSetsuUrlComplete) => ({
     type: ActionTypes.GET_SETSU_URL_SUCCEED as typeof ActionTypes.GET_SETSU_URL_SUCCEED,
-    payload: {
-      url: result.url
-    }
+    payload: { result }
   }),
   fail: (error: getSetsuUrlError) => ({
     type: ActionTypes.GET_SETSU_URL_FAIL as typeof ActionTypes.GET_SETSU_URL_FAIL,
@@ -58,7 +56,9 @@ export const getSetsuUrl = {
 
 export type SetsuAction =
   | ReturnType<typeof changeText>
-  // | ReturnType<typeof changeBgImage>
   | ReturnType<typeof complete.start>
   | ReturnType<typeof complete.succeed>
-  | ReturnType<typeof complete.fail>;
+  | ReturnType<typeof complete.fail>
+  | ReturnType<typeof getSetsuUrl.start>
+  | ReturnType<typeof getSetsuUrl.succeed>
+  | ReturnType<typeof getSetsuUrl.fail>;

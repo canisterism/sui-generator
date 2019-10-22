@@ -35,7 +35,9 @@ const SetsuContainer: FC<EnhancedMembersProps> = ({
   match,
   getSetsuUrl
 }) => {
-  useEffect(() => getSetsuUrl(match.params.id), []);
+  useEffect(() => {
+    getSetsuUrl(match.params.id);
+  }, []);
   return (
     <>
       {/* TODO: Loading Animation */}

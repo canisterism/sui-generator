@@ -59,6 +59,23 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
         isProcessing: false,
         error: action.error || true
       };
+    case ActionTypes.GET_SETSU_URL_START:
+      return {
+        ...state,
+        isProcessing: true
+      };
+    case ActionTypes.GET_SETSU_URL_SUCCEED:
+      return {
+        ...state,
+        isProcessing: false,
+        src: action.payload.result.url
+      };
+    case ActionTypes.GET_SETSU_URL_FAIL:
+      return {
+        ...state,
+        isProcessing: false,
+        error: action.error || true
+      };
     default: {
       return state;
     }

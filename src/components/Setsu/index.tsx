@@ -6,7 +6,6 @@ export type SetsuProps = {
 };
 
 const Setsu: FC<SetsuProps> = ({ src }) => {
-  debugger;
   return (
     <>
       <Button>DO IT</Button>
