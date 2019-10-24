@@ -12,11 +12,11 @@ import { push } from 'connected-react-router';
 function* runComplete() {
   try {
     const state: SetsuState = yield select(getState);
-    // const base64 = yield call(createBase64SetsuImage, state);
-    // const docId = yield call(write, state.textValue.split('\n').join(''));
-    // yield call(uploadBase64, base64, docId);
+    const base64 = yield call(createBase64SetsuImage, state);
+    const docId = yield call(write, state.textValue.split('\n').join(''));
+    yield call(uploadBase64, base64, docId);
 
-    const docId = 'g9WxzAOVEqgArDdjgow2';
+    // const docId = 'g9WxzAOVEqgArDdjgow2';
 
     yield put(complete.succeed({ docId: docId }));
     yield put(push(`/setsu/${docId}`));
