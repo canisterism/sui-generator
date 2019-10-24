@@ -1,17 +1,38 @@
-import React, { FC, useState } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
-import { Button, Header } from 'semantic-ui-react';
+import React, { FC } from 'react';
+import { Button, Header, Container } from 'semantic-ui-react';
+import Helmet from 'react-helmet';
 
-type SetsuProps = {} & RouteComponentProps<{ id: string }>;
+export type SetsuProps = {
+  src: string;
+};
 
-const Setsu: FC<SetsuProps> = ({ match }) => {
-  const id = match.params.id;
+const style = {
+  div: {
+    margin: '5rem',
+    textAlign: 'center'
+  },
+  img: {
+    width: '100%',
+    maxWidth: '100%',
+    height: 'auto'
+  }
+};
+
+const Setsu: FC<SetsuProps> = ({ src }) => {
   return (
     <>
+      <Helmet
+        meta={[
+          { property: 'og:image', content: src },
+          { property: 'og:url', content: src } // TODO
+        ]}
+      />
       <Button>DO IT</Button>
-      <Header>id: {id}</Header>
+      <Container>
+        <img src={src} style={style.img} alt='' />
+      </Container>
     </>
   );
 };
 
-export default withRouter(Setsu);
+export default Setsu;
