@@ -1,16 +1,7 @@
-import React, { FC, useState } from 'react';
-import {
-  Header,
-  Container,
-  Form,
-  TextArea,
-  Button,
-  Icon
-} from 'semantic-ui-react';
-import { svgToPng } from '../../utils/Downloader';
+import React, { FC } from 'react';
+import { Header, Button } from 'semantic-ui-react';
 import SetsuPreview from '../../containers/SetsuPreview';
 import SetsuTextarea from '../../containers/SetsuTextarea';
-import { Link } from 'react-router-dom';
 
 const style = {
   app: {
@@ -30,50 +21,38 @@ const style = {
   textarea: {
     textAlign: 'center' as 'center',
     width: '70%'
+  },
+  button: {
+    marginTop: '1rem',
+    height: '3.5rem',
+    fontSize: '1.2rem',
+    width: '100%'
   }
 };
 
-const Home: FC<{}> = () => {
+export interface HomeProps {
+  isProcessing: Boolean;
+  error: Boolean;
+  onClickComplete: () => void;
+}
+
+const Home: FC<HomeProps> = ({ isProcessing, error, onClickComplete }) => {
   return (
     <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
-        水曜日のダウンタウン
-        <br /> 説ジェネレーター
+        水曜日のダウンタウン説ジェネレーター
       </Header>
       <SetsuPreview />
       <SetsuTextarea />
-      <Link to={`/setsu/${1}`}>
-        <Button primary>完成！</Button>
-      </Link>
-      {/*<Container style={style.my1}>
-        <Form>
-          <TextArea
-            onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
-              setText(e.currentTarget.value);
-            }}
-            value={text}
-            style={style.textarea}
-          />
-        </Form>
-      </Container>
       <Button
-        secondary
+        primary
         onClick={() => {
-          const svg = document.getElementById('svg')!;
-          const bgImage = document.getElementById(
-            'bgImage'
-          )! as HTMLImageElement;
-          const setsuImage = document.getElementById(
-            'setsu'
-          )! as HTMLImageElement;
-          svgToPng(svg, bgImage, setsuImage, text);
-        }}>
-        <Icon name='download' />
-        ダウンロード
+          onClickComplete();
+        }}
+        style={style.button}
+        loading={isProcessing ? true : false}>
+        完成！
       </Button>
-      <Link to={`/setsu/${1}`}>
-        <Button primary>完成！</Button>
-      </Link> */}
     </div>
   );
 };

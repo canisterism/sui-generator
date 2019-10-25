@@ -64,13 +64,6 @@ export const svgToPng = (
       .catch(e => console.error(e));
   };
   tmpImg.src = 'data:image/svg+xml,' + svg;
-
-  // return new Promise((resolve, reject) => {
-  //   debugger
-  //   img.onload = () => resolve(img)
-  //   img.onerror = (e) => reject(e)
-  //   img.src = svgURI
-  // })
 };
 
 const download = (src: string, imageName: string) => {
