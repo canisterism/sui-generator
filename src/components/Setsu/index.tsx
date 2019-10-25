@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 
 export type SetsuProps = {
   src: string;
+  path: string;
 };
 
 const style = {
@@ -19,13 +20,16 @@ const style = {
   }
 };
 
-const Setsu: FC<SetsuProps> = ({ src }) => {
+const Setsu: FC<SetsuProps> = ({ src, path }) => {
   return (
     <>
       <Helmet
         meta={[
-          { property: 'og:image', content: src },
-          { property: 'og:url', content: src } // TODO
+          { property: 'twitter:image', content: src },
+          {
+            property: 'twitter:url',
+            content: `https://www.sui-generator.tech/${path}`
+          } // TODO
         ]}
       />
       <Button>DO IT</Button>
