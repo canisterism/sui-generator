@@ -28,7 +28,7 @@ const Setsu: FC<SetsuProps> = ({ src, path }) => {
           { property: 'twitter:image', content: src },
           {
             property: 'twitter:url',
-            content: `https://www.sui-generator.tech/${path}`
+            content: `https://www.sui-generator.tech${path}`
           } // TODO
         ]}
       />
