@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 export interface TweetButtonProps {
   text: string;
+  path?: string;
 }
 
-export const TweetButton: FC<TweetButtonProps> = ({ text }) => {
+export const TweetButton: FC<TweetButtonProps> = ({ text, path }) => {
   return (
     <Button
       color='twitter'
@@ -12,7 +13,7 @@ export const TweetButton: FC<TweetButtonProps> = ({ text }) => {
         window.open(
           'https://twitter.com/share?text=' +
             text +
-            '説&url=https://www.sui-generator.tech&hashtags=説ジェネレーター',
+            `説&url=https://www.sui-generator.tech${path}&hashtags=説ジェネレーター`,
           'popup',
           'width=600,height=250,scrollbars=no,resizable=no,left=400,top=300'
         )
