@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Button, Header, Container } from 'semantic-ui-react';
+import TweetButton from '../../containers/TweetButton';
 import Helmet from 'react-helmet';
 
 export type SetsuProps = {
@@ -30,6 +31,7 @@ const Setsu: FC<SetsuProps> = ({ src }) => {
       <Button>DO IT</Button>
       <Container>
         <img src={src} style={style.img} alt='' />
+        <TweetButton />
       </Container>
     </>
   );

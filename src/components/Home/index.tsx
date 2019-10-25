@@ -40,8 +40,7 @@ const Home: FC<HomeProps> = ({ isProcessing, error, onClickComplete }) => {
   return (
     <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
-        水曜日のダウンタウン
-        <br /> 説ジェネレーター
+        水曜日のダウンタウン説ジェネレーター
       </Header>
       <SetsuPreview />
       <SetsuTextarea />
