@@ -15,6 +15,6 @@ export function* runComplete() {
     yield put(complete.succeed({ docId: docId }));
     yield put(push(`/setsu/${docId}`));
   } catch (error) {
-    yield put(complete.fail({ reason: 'e' }));
+    yield put(complete.fail(error));
   }
 }
