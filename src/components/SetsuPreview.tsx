@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import bgImage from '../styles/theme/default/assets/images/sui_image.png';
+import React, { FC, Suspense } from 'react';
 import font from '../styles/theme/default/assets/fonts/font.base64.js';
-import SetsuTexts from '../containers/SetsuTexts';
+import bgImage from '../styles/theme/default/assets/images/sui_image.png';
+const SetsuTexts = React.lazy(() => import('../containers/SetsuTexts'));
 
 export interface PreviewProps {
   bgImageUrl?: any; // fixme
@@ -31,7 +31,9 @@ const SetsuPreview: FC<PreviewProps> = ({
         </style>
       </defs>
       <image id='bg-image' href={bgImageUrl} width='100%' height='100%' />
-      <SetsuTexts />
+      <Suspense fallback={''}>
+        <SetsuTexts />
+      </Suspense>
     </svg>
   );
 };
