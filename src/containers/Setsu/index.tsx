@@ -44,7 +44,6 @@ const SetsuContainer: FC<EnhancedMembersProps> = ({
   }, []);
   return (
     <>
-      {/* TODO: Loading Animation */}
       <Setsu src={src} path={location.pathname} isProcessing={isProcessing} />
     </>
   );

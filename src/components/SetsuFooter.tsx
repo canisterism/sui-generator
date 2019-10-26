@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Divider, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 const style = {
   segment: {
@@ -24,7 +24,10 @@ const SetsuFooter: FC = () => (
       </p>
       <p>
         author:
-        <a href='https://twitter.com/canisterism' target='_blank'>
+        <a
+          href='https://twitter.com/canisterism'
+          target='_blank'
+          rel='noopener noreferrer'>
           @canisterism
         </a>
       </p>
