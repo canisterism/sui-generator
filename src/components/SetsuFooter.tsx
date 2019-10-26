@@ -6,9 +6,9 @@ const style = {
     padding: 'auto 0',
     margin: '2rem 0 0',
     borderRadius: '0',
-    fontSize: '0.8rem',
+    fontSize: '1rem',
     width: '100%',
-    position: 'absolute',
+    position: 'relative',
     bottom: 0
   }
 };
@@ -16,7 +16,12 @@ const style = {
 const SetsuFooter: FC = () => (
   <>
     <Segment inverted style={style.segment} textAlign='center'>
-      <p>sui-generator powered by 黒バラゴシック</p>
+      <p>
+        sui-generator powered by
+        <a href='http://modi.jpn.org/font_kurobara-gothic.php'>
+          黒バラゴシック
+        </a>
+      </p>
       <p>
         author:
         <a href='https://twitter.com/canisterism' target='_blank'>

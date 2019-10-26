@@ -20,6 +20,7 @@ const SetsuTextarea: FC<SetsuTextareaProps> = ({
         changeText(e.currentTarget.value)
       }
       value={textValue}
+      placeholder={''}
       style={style}
     />
   </Form>

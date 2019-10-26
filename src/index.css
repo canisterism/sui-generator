@@ -15,5 +15,7 @@ code {
 #root {
   margin: auto auto 0;
   background: #333;
-  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }

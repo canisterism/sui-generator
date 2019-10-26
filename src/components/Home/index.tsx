@@ -9,7 +9,8 @@ const style = {
     minWidth: '320px',
     textAlign: 'center' as 'center',
     paddingBottom: '1rem',
-    margin: '2rem auto 1rem'
+    margin: '2rem auto 1rem',
+    flex: 1
   },
   my1: {
     margin: '1rem 0'

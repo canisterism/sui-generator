@@ -13,7 +13,11 @@ const style = {
   container: {
     marginTop: '3rem',
     color: '#eee',
-    textAlign: 'center'
+    textAlign: 'center',
+    flex: 1
+  },
+  messageContainer: {
+    margin: '1rem 0'
   },
   div: {
     margin: '5rem',
@@ -22,8 +26,8 @@ const style = {
   img: {
     border: ' 3px solid #eee',
     boxSizing: 'border-box' as 'border-box',
-    width: '100%',
-    maxWidth: '100%',
+    width: '80%',
+    maxWidth: '80%',
     height: 'auto'
   }
 };
@@ -46,8 +50,10 @@ const Setsu: FC<SetsuProps> = ({ isProcessing, src, path }) => {
       <Suspense fallback={''}>
         <Container style={style.container}>
           <img src={src} style={style.img} alt='' />
-          <p>あなただけの「説」画像が完成しました。</p>
-          <p>早速SNSでシェアしましょう！</p>
+          <Container style={style.messageContainer}>
+            <p>あなただけの「説」画像が完成しました。</p>
+            <p>早速SNSでシェアしましょう！</p>
+          </Container>
           <TweetButton />
         </Container>
       </Suspense>
