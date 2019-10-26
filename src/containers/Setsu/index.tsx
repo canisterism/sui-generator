@@ -37,7 +37,6 @@ const SetsuContainer: FC<EnhancedMembersProps> = ({
   getSetsuUrl
 }) => {
   useEffect(() => {
-    debugger;
     getSetsuUrl(match.params.id);
   }, []);
   return (
