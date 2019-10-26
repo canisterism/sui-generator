@@ -1,6 +1,7 @@
 import React, { FC, Suspense } from 'react';
 import { Container, Dimmer, Loader } from 'semantic-ui-react';
 import Helmet from 'react-helmet';
+import TextToClipBoard from '../TextToClipboard';
 const TweetButton = React.lazy(() => import('../../containers/TweetButton'));
 
 export type SetsuProps = {
@@ -33,6 +34,7 @@ const style = {
 };
 
 const Setsu: FC<SetsuProps> = ({ isProcessing, src, path }) => {
+  const url = `https://www.sui-generator.tech${path}`;
   return (
     <>
       <Helmet
@@ -40,7 +42,7 @@ const Setsu: FC<SetsuProps> = ({ isProcessing, src, path }) => {
           { property: 'twitter:image', content: src },
           {
             property: 'twitter:url',
-            content: `https://www.sui-generator.tech${path}`
+            content: url
           }
         ]}
       />
@@ -54,6 +56,7 @@ const Setsu: FC<SetsuProps> = ({ isProcessing, src, path }) => {
             <p>あなただけの「説」画像が完成しました。</p>
             <p>早速SNSでシェアしましょう！</p>
           </Container>
+          <TextToClipBoard value={url} />
           <TweetButton />
         </Container>
       </Suspense>
