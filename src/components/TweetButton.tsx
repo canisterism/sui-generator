@@ -11,8 +11,8 @@ export const TweetButton: FC<TweetButtonProps> = ({ text, path }) => {
       color='twitter'
       onClick={() =>
         window.open(
-          'https://twitter.com/share?text=' +
-            text +
+          'https://twitter.com/share?text=""' +
+            // text + # todo テキストを取得する
             `説&url=https://www.sui-generator.tech${path}&hashtags=説ジェネレーター`,
           'popup',
           'width=600,height=250,scrollbars=no,resizable=no,left=400,top=300'
