@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Header, Button, Message } from 'semantic-ui-react';
+import { Button, Message, Container, Divider } from 'semantic-ui-react';
 import SetsuPreview from '../../containers/SetsuPreview';
 import SetsuTextarea from '../../containers/SetsuTextarea';
 
@@ -9,24 +9,16 @@ const style = {
     minWidth: '320px',
     textAlign: 'center' as 'center',
     paddingBottom: '1rem',
-    margin: 'auto'
-  },
-  header: {
-    fontFamily: 'Kurobara Gothiic Black',
-    paddingTop: '2rem'
+    margin: '2rem auto 1rem'
   },
   my1: {
     margin: '1rem 0'
   },
-  textarea: {
-    textAlign: 'center' as 'center',
-    width: '70%'
-  },
   button: {
     marginTop: '1rem',
-    height: '3.5rem',
     fontSize: '1.2rem',
-    width: '100%'
+    width: '70%'
+    // backgroundColor: '#17E9e0'
   }
 };
 
@@ -54,21 +46,20 @@ const Home: FC<HomeProps> = ({
 
   return (
     <div id='app' style={style.app}>
-      <Header as='h1' style={style.header}>
-        水曜日のダウンタウン説ジェネレーター
-      </Header>
-      {errorDialog}
-      <SetsuPreview />
-      <SetsuTextarea />
-      <Button
-        primary
-        onClick={() => {
-          onClickComplete();
-        }}
-        style={style.button}
-        loading={isProcessing ? true : false}>
-        完成！
-      </Button>
+      <Container textAlign='center'>
+        {errorDialog}
+        <SetsuPreview />
+        <SetsuTextarea />
+        <Button
+          primary
+          onClick={() => {
+            onClickComplete();
+          }}
+          style={style.button}
+          loading={isProcessing ? true : false}>
+          完成！
+        </Button>
+      </Container>
     </div>
   );
 };

@@ -5,7 +5,11 @@ export interface SetsuTextareaProps {
   textValue?: string;
   changeText: (text: string) => void;
 }
-
+const style = {
+  textAlign: 'center' as 'center',
+  width: '70%',
+  marginTop: '0.8rem'
+};
 const SetsuTextarea: FC<SetsuTextareaProps> = ({
   textValue = '',
   changeText = () => {}
@@ -16,7 +20,7 @@ const SetsuTextarea: FC<SetsuTextareaProps> = ({
         changeText(e.currentTarget.value)
       }
       value={textValue}
-      style={{ textAlign: 'center' }}
+      style={style}
     />
   </Form>
 );
