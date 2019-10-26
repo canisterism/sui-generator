@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { Header, Button, Message } from 'semantic-ui-react';
-import SetsuPreview from '../../containers/SetsuPreview';
+import React, { FC, Suspense } from 'react';
+import { Button, Message, Container, Dimmer, Loader } from 'semantic-ui-react';
 import SetsuTextarea from '../../containers/SetsuTextarea';
+const SetsuPreview = React.lazy(() => import('../../containers/SetsuPreview'));
 
 const style = {
   app: {
@@ -9,30 +9,22 @@ const style = {
     minWidth: '320px',
     textAlign: 'center' as 'center',
     paddingBottom: '1rem',
-    margin: 'auto'
-  },
-  header: {
-    fontFamily: 'Kurobara Gothiic Black',
-    paddingTop: '2rem'
+    margin: '2rem auto 1rem',
+    flex: 1
   },
   my1: {
     margin: '1rem 0'
   },
-  textarea: {
-    textAlign: 'center' as 'center',
-    width: '70%'
-  },
   button: {
     marginTop: '1rem',
-    height: '3.5rem',
     fontSize: '1.2rem',
-    width: '100%'
+    width: '70%'
   }
 };
 
 export interface HomeProps {
-  isProcessing: Boolean;
-  error: Boolean;
+  isProcessing: boolean;
+  error: boolean;
   errorMessage?: string;
   onClickComplete: () => void;
 }
@@ -54,21 +46,24 @@ const Home: FC<HomeProps> = ({
 
   return (
     <div id='app' style={style.app}>
-      <Header as='h1' style={style.header}>
-        水曜日のダウンタウン説ジェネレーター
-      </Header>
-      {errorDialog}
-      <SetsuPreview />
-      <SetsuTextarea />
-      <Button
-        primary
-        onClick={() => {
-          onClickComplete();
-        }}
-        style={style.button}
-        loading={isProcessing ? true : false}>
-        完成！
-      </Button>
+      <Dimmer active={isProcessing}>
+        <Loader content='Loading...'></Loader>
+      </Dimmer>
+      <Container textAlign='center'>
+        {errorDialog}
+        <Suspense fallback={''}>
+          <SetsuPreview />
+        </Suspense>
+        <SetsuTextarea />
+        <Button
+          primary
+          onClick={() => {
+            onClickComplete();
+          }}
+          style={style.button}>
+          完成！
+        </Button>
+      </Container>
     </div>
   );
 };
