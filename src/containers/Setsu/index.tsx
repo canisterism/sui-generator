@@ -33,6 +33,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
 const SetsuContainer: FC<EnhancedMembersProps> = ({
   src,
   match,
+  location,
   getSetsuUrl
 }) => {
   useEffect(() => {
@@ -41,7 +42,7 @@ const SetsuContainer: FC<EnhancedMembersProps> = ({
   return (
     <>
       {/* TODO: Loading Animation */}
-      <Setsu src={src} />
+      <Setsu src={src} path={location.pathname} />
     </>
   );
 };
