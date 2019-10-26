@@ -8,6 +8,7 @@ import Home, { HomeProps } from '../../components/Home/index';
 interface StateProps {
   isProcessing: Boolean;
   error: Boolean;
+  errorMessage: string;
 }
 
 interface DispatchProps {
@@ -16,7 +17,8 @@ interface DispatchProps {
 
 const mapStateToProps = (state: RootState): StateProps => ({
   isProcessing: state.setsu.isProcessing,
-  error: state.setsu.error
+  error: state.setsu.error,
+  errorMessage: state.setsu.errorMessage
 });
 
 const DispatchToProps = (dispatch: Dispatch): DispatchProps =>
@@ -32,12 +34,14 @@ type EnhancedHomeProps = HomeProps & StateProps & DispatchProps;
 const HomeContainer: FC<EnhancedHomeProps> = ({
   isProcessing,
   error,
+  errorMessage,
   onClickComplete
 }) => (
   <>
     <Home
       isProcessing={isProcessing}
       error={error}
+      errorMessage={errorMessage}
       onClickComplete={onClickComplete}
     />
   </>

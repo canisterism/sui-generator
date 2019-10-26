@@ -13,6 +13,7 @@ export interface SetsuState {
   isProcessing: boolean;
   previewBase64: string;
   error: boolean;
+  errorMessage: string;
   docId: string; // firebaseにアップロードされたファイル名
   src: string; //firebaseの画像URL
 }
@@ -28,6 +29,7 @@ export const initialTextState: SetsuState = {
   isProcessing: false,
   previewBase64: '',
   error: false,
+  errorMessage: '',
   docId: '',
   src: ''
 };
@@ -57,7 +59,8 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
       return {
         ...state,
         isProcessing: false,
-        error: action.error || true
+        error: action.error || true,
+        errorMessage: action.payload.error.message
       };
     case ActionTypes.GET_SETSU_URL_START:
       return {
@@ -74,7 +77,8 @@ const setsuReducer: Reducer<SetsuState, SetsuAction> = (
       return {
         ...state,
         isProcessing: false,
-        error: action.error || true
+        error: action.error || true,
+        errorMessage: action.payload.error.message
       };
     default: {
       return state;

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Header, Button } from 'semantic-ui-react';
+import { Header, Button, Message } from 'semantic-ui-react';
 import SetsuPreview from '../../containers/SetsuPreview';
 import SetsuTextarea from '../../containers/SetsuTextarea';
 
@@ -33,15 +33,31 @@ const style = {
 export interface HomeProps {
   isProcessing: Boolean;
   error: Boolean;
+  errorMessage?: string;
   onClickComplete: () => void;
 }
 
-const Home: FC<HomeProps> = ({ isProcessing, error, onClickComplete }) => {
+const Home: FC<HomeProps> = ({
+  isProcessing,
+  error,
+  errorMessage,
+  onClickComplete
+}) => {
+  const errorDialog = error ? (
+    <Message negative>
+      <Message.Header> エラーが発生しました。</Message.Header>
+      <p>{errorMessage}</p>
+    </Message>
+  ) : (
+    ''
+  );
+
   return (
     <div id='app' style={style.app}>
       <Header as='h1' style={style.header}>
         水曜日のダウンタウン説ジェネレーター
       </Header>
+      {errorDialog}
       <SetsuPreview />
       <SetsuTextarea />
       <Button

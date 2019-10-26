@@ -12,7 +12,7 @@ export const uploadBase64 = (
     })
     .catch(e => {
       console.log(e);
-      throw new Error();
+      throw new Error(e.message);
     });
 };
 
@@ -25,6 +25,6 @@ export const fetch = (path: string): Promise<string> | Promise<Error> => {
     })
     .catch(e => {
       console.error(e);
-      throw new Error(); // TODO
+      throw new Error(e.message);
     });
 };

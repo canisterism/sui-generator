@@ -10,6 +10,7 @@ export const write = (text: string): Promise<string> | Promise<Error> => {
       return docRef.id;
     })
     .catch(e => {
-      throw new Error();
+      console.error(e);
+      throw new Error(e.message);
     });
 };

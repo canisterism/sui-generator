@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button, Header, Container } from 'semantic-ui-react';
+import { Button, Container } from 'semantic-ui-react';
 import TweetButton from '../../containers/TweetButton';
 import Helmet from 'react-helmet';
 

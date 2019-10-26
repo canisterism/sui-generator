@@ -5,14 +5,14 @@ interface completeResult {
 }
 
 interface completeError {
-  reason: string;
+  message: string;
 } // TODO: fix Error interface
 
 interface getSetsuUrlComplete {
   url: string;
 }
 interface getSetsuUrlError {
-  reason: string;
+  message: string;
 } // TODO: fix Error interface
 
 export const changeText = (text: string) => ({
