@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { Button, Message, Container, Divider } from 'semantic-ui-react';
-import SetsuPreview from '../../containers/SetsuPreview';
+import React, { FC, Suspense } from 'react';
+import { Button, Message, Container, Dimmer, Loader } from 'semantic-ui-react';
 import SetsuTextarea from '../../containers/SetsuTextarea';
+const SetsuPreview = React.lazy(() => import('../../containers/SetsuPreview'));
 
 const style = {
   app: {
@@ -18,13 +18,12 @@ const style = {
     marginTop: '1rem',
     fontSize: '1.2rem',
     width: '70%'
-    // backgroundColor: '#17E9e0'
   }
 };
 
 export interface HomeProps {
-  isProcessing: Boolean;
-  error: Boolean;
+  isProcessing: boolean;
+  error: boolean;
   errorMessage?: string;
   onClickComplete: () => void;
 }
@@ -46,17 +45,21 @@ const Home: FC<HomeProps> = ({
 
   return (
     <div id='app' style={style.app}>
+      <Dimmer active={isProcessing}>
+        <Loader content='Loading...'></Loader>
+      </Dimmer>
       <Container textAlign='center'>
         {errorDialog}
-        <SetsuPreview />
+        <Suspense fallback={''}>
+          <SetsuPreview />
+        </Suspense>
         <SetsuTextarea />
         <Button
           primary
           onClick={() => {
             onClickComplete();
           }}
-          style={style.button}
-          loading={isProcessing ? true : false}>
+          style={style.button}>
           完成！
         </Button>
       </Container>

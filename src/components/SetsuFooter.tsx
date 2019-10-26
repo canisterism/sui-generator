@@ -6,16 +6,23 @@ const style = {
     padding: 'auto 0',
     margin: '2rem 0 0',
     borderRadius: '0',
-    fontSize: '0.8rem'
-  },
-  p: {}
+    fontSize: '0.8rem',
+    width: '100%',
+    position: 'absolute',
+    bottom: 0
+  }
 };
 
 const SetsuFooter: FC = () => (
   <>
     <Segment inverted style={style.segment} textAlign='center'>
       <p>sui-generator powered by 黒バラゴシック</p>
-      <p>author: @canisterism</p>
+      <p>
+        author:
+        <a href='https://twitter.com/canisterism' target='_blank'>
+          @canisterism
+        </a>
+      </p>
     </Segment>
   </>
 );

@@ -7,6 +7,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { getSetsuUrl } from '../../actions/setsu';
 interface StateProps {
   src: string;
+  isProcessing: boolean;
 }
 
 interface DispatchProps {
@@ -19,7 +20,8 @@ type EnhancedMembersProps = StateProps &
   RouteComponentProps<{ id: string }>;
 
 const mapStateToProps = (state: RootState) => ({
-  src: state.setsu.src
+  src: state.setsu.src,
+  isProcessing: state.setsu.isProcessing
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
@@ -32,6 +34,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
 
 const SetsuContainer: FC<EnhancedMembersProps> = ({
   src,
+  isProcessing,
   match,
   location,
   getSetsuUrl
@@ -42,7 +45,7 @@ const SetsuContainer: FC<EnhancedMembersProps> = ({
   return (
     <>
       {/* TODO: Loading Animation */}
-      <Setsu src={src} path={location.pathname} />
+      <Setsu src={src} path={location.pathname} isProcessing={isProcessing} />
     </>
   );
 };

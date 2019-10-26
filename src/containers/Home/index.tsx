@@ -6,8 +6,8 @@ import { complete } from '../../actions/setsu';
 import Home, { HomeProps } from '../../components/Home/index';
 
 interface StateProps {
-  isProcessing: Boolean;
-  error: Boolean;
+  isProcessing: boolean;
+  error: boolean;
   errorMessage: string;
 }
 

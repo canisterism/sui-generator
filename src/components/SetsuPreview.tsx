@@ -11,7 +11,7 @@ export interface PreviewProps {
 const style = {
   svg: {
     border: ' 3px solid #eee',
-    boxSizing: 'content-box' as 'content-box'
+    boxSizing: 'border-box' as 'border-box'
   }
 };
 
