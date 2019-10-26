@@ -1,44 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# About Sui-Generator
 
-## Available Scripts
+Sui-Generator is a generator you can create an image like a slide from a japanese entertainment show,`水曜日のダウンタウン(sui youbi no downtown)` with.
 
-In the project directory, you can run:
+![sui-image](https://firebasestorage.googleapis.com/v0/b/sui-generator.appspot.com/o/Web%E3%82%A8%E3%83%B3%E3%82%B7%E3%82%99%E3%83%8B%E3%82%A2%E3%81%AE%EF%BC%98%E5%89%B2_%E5%B9%BC%E5%B0%91%E6%9C%9F%E3%81%AB_%E8%BF%B7%E8%B7%AF%E6%9B%B8%E3%81%84%E3%81%A6%E3%81%9F%20(10).png?alt=media&token=961d814c-4ac2-4534-b42f-78121586bdf8)
 
-### `npm start`
+# How to Use
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You just need to type your hypothesis and click complete button.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+Then your `setsu` image will be generated.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Share the image by yourself or Share its URL(OGP is displayed).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 開発環境構築
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+$ yarn
+$ yarn start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### FirebaseのAPI Keyなどなどを取ってくる
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

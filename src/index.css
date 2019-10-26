@@ -14,5 +14,29 @@ code {
 
 #root {
   margin: auto auto 0;
-  background: linear-gradient(to right, #0097dd, #fac439);
+  background: #333;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/*
+  TextToClipBoardのInputの見た目をsemantic-uiっぽくするのをサボった
+*/
+input {
+  margin: 0;
+  max-width: 100%;
+  flex: 1 0 auto;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 0.67857143em 1em;
+  background: #fff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 0.28571429rem;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  box-shadow: none;
 }
