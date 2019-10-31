@@ -5,9 +5,11 @@ export const uploadBase64 = (
   filename: string
 ): Promise<string> | Promise<Error> => {
   const ref = firebaseStorage.child(filename.split('\n').join(''));
+  console.log('uploadBase64 has been called, uploading...');
   return ref
     .putString(src, 'data_url')
     .then(snapShot => {
+      console.log('uploadBase64 seems to success');
       return snapShot.metadata.fullPath;
     })
     .catch(e => {

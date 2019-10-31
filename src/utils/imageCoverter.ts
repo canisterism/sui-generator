@@ -73,6 +73,7 @@ export const calculateSetsuAttrs = (state: SetsuState): setusAttrs => {
 };
 
 export const createBase64SetsuImage = (state: SetsuState) => {
+  console.log('createBase64SetsuImage has called');
   const canvas = initCanvas(state.width, state.height);
   const ctx = canvas.getContext('2d')!;
   const tmpImg = new Image();
@@ -84,9 +85,11 @@ export const createBase64SetsuImage = (state: SetsuState) => {
   const bgImage = document.getElementById('bg-image') as HTMLImageElement;
   const setsuImage = document.getElementById('setsu-image') as HTMLImageElement;
   // ↑↑↑fuck I'm stupid↑↑↑
+  console.log('returning Promise...');
 
   return new Promise((resolve, reject) => {
     tmpImg.onload = () => {
+      console.log('tmpImg has loaded, calling the first drawImage ...');
       ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
       resolve();
     };
@@ -94,6 +97,7 @@ export const createBase64SetsuImage = (state: SetsuState) => {
   })
     .then(() => {
       const setsuAttrs = calculateSetsuAttrs(state);
+      console.log('calling the second drawImage to draw setsuImage ...');
       ctx.drawImage(
         setsuImage,
         setsuAttrs.setsuDx,
@@ -104,10 +108,12 @@ export const createBase64SetsuImage = (state: SetsuState) => {
       return true;
     })
     .then(() => {
+      console.log('calling the last drawImage to draw setsuTexts(tmpImg) ...');
       ctx.drawImage(tmpImg, 0, 0, state.width, state.height);
       return true;
     })
     .then(() => {
+      console.log('calling toDataURL to export canvas as string...');
       return canvas.toDataURL('image/png');
     });
 };
